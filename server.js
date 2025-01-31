@@ -6,7 +6,7 @@ var express = require("express"),
 	passportLocalMongoose =require("passport-local-mongoose"),
 	User = require("./model/user");
 
-mongoose.connect("mongodb://127.0.0.1:27017/netflix");
+mongoose.connect("mongodb+srv://cubeboardtech:Bsam191004@cluster0.v6b6a.mongodb.net/netflix");
 
 var app = express();
 
