@@ -1,0 +1,894 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Netflix</title>
+    <link rel="icon" href="https://github.com/888SAM-B/cdnimages/blob/main/netflix%20(1).png?raw=true"
+        type="image/icon type">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        body {
+            margin: 0px;
+            padding: 0PX;
+            background-color: black;
+            overflow-x: hidden;
+            /* position: relative; */
+            display: flex;
+            flex-direction: column;
+            /* top: 20px; */
+            background-color: black;
+            display: flex;
+            align-items: center;
+            width: 100%;
+            /* height: 100vh; */
+            overflow-x: hidden;
+            justify-content: center;
+        }
+        .animations{
+            z-index: 100;
+            position: absolute;
+            display: flex;
+            height: 100vh;
+            width: 100%;
+            top:0px;
+            z-index: -1;
+            align-items: center;
+            justify-content: center;
+            background-color: black;
+            overflow-x: hidden;
+            overflow-y: hidden;
+        }
+        .line1 , .line2 ,.line3{
+            height: 300px;
+            width: 100px;
+            transition: transform;
+            background-color: rgb(173, 12, 12);
+        }
+        .line1 , .line3{
+            animation: logo 2.5s ease forwards;
+            animation-iteration-count: 1;
+            transform-origin: top;
+        }
+        .line2{
+            background-color: red;
+            transform: skew(33.7deg);
+            animation: l2 2.5s ease forwards;
+            animation-delay: .25s;
+            z-index: 5;
+            opacity: 0;
+        }
+        @keyframes logo {
+            0%{
+                transform: scaleY(0);
+            }
+            20%{
+                transform: scaleY(1);
+            }
+            50%{
+                scale: 1;
+            }
+            60%{
+                scale: 1;
+                opacity: 1;
+            }
+            100%{
+                opacity: 0;
+                scale: 1;
+            }
+        }
+        @keyframes l2 {
+            0%{
+                opacity: 0;
+            }
+            50%{
+                scale: 1;
+                opacity: 1;
+            }
+            70%{
+                scale: 1;
+                opacity: 1;
+            }
+            90%{
+                opacity: 0;
+                scale: 11;
+            }
+            100%{
+                opacity: 0;
+                scale: 15;
+            }
+        }
+         .minilines{
+            position: absolute;
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            justify-content: space-between;
+            opacity: 0;
+            animation: zoom 2s ease forwards;
+            animation-delay: 2.05s;
+            z-index: 5;
+         }
+        .li{
+            margin-right: 10px;
+            padding: 1px;
+            width: 1px;
+            height: 100%;
+            background-color: aqua;
+            animation: zoom1 2s ease forwards; 
+            animation-delay: 2.05s;
+        }
+        @keyframes zoom {
+            0%{
+                opacity: 1;
+                transform: scaleX(0.15);
+            }
+            90%{
+                opacity:1;
+            }
+            100%{
+                opacity: 0;
+                transform: scaleX(2.5);
+            }
+        }
+        @keyframes zoom1 {
+            0%{
+                scale: 1;
+                opacity: 1;
+            }
+            50%{
+                opacity: 1;
+                /* opacity: 0.05; */
+            }
+            100%{
+                opacity: 0;
+                transform: scaleX(0.5);
+            }
+        }
+        .banner {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            height: 300px;
+            /* max-height: 400px; */
+            /* position:relative; */
+        }
+
+        .banner img {
+            height: 100%;
+            position: relative;
+            max-width: 100px;
+            min-width: 100%;
+            z-index: -10;
+        }
+
+        .bcon {
+            display: flex;
+            height: 300px;
+            align-items: flex-start;
+            justify-content: center;
+            position: absolute;
+            width: 80%;
+            flex-direction: column;
+            padding-left: 20px;
+            font-size: 15px;
+        }
+
+        @media screen and (min-width:700px) {
+            .banner {
+                height: 500px;
+            }
+
+            .bcon {
+                height: 500px;
+                width: 50%;
+            }
+
+        }
+
+        h3 {
+            font-family: sans-serif;
+            color: white;
+            font-size: 25px;
+        }
+
+        h2 {
+            font-family: sans-serif;
+            color: white;
+            font-size: 25px;
+            padding-left: 10px;
+            margin-top: 20px;
+        }
+
+        p {
+            color: white;
+            font-family: sans-serif;
+            display: flex;
+        }
+
+        button {
+            color: white;
+            background-color: rgba(100, 96, 96, 0.425);
+            border-radius: 5px;
+            padding: 5px;
+            width: 100px;
+            text-decoration: none;
+            border: none;
+            font-family: sans-serif;
+            transition: transform 10ms;
+            cursor: pointer;
+        }
+
+        button:hover {
+            color: black;
+            background-color: white;
+            transform: scale(1.01);
+
+        }
+
+        .images {
+            overflow-x: scroll;
+            display: flex;
+        }
+
+        .images1 {
+            overflow-x: scroll;
+            display: flex;
+            overflow-y: hidden;
+        }
+
+        .images1::-webkit-scrollbar {
+            display: none;
+            scroll-behavior: smooth;
+        }
+
+        .content {
+            position: relative;
+            /* top:500px; */
+            border: 0px;
+        }
+
+        .images::-webkit-scrollbar {
+            display: none;
+            scroll-behavior: smooth;
+        }
+
+        .img {
+            transition: transform 20ms;
+            height: 250px;
+            width: 170px;
+            padding: 10px;
+            cursor: pointer;
+        }
+
+        @media screen and (max-width:700px) {
+            .img {
+                height: 200px;
+                width: 150px;
+            }
+
+            h2 {
+                font-size: 18px;
+            }
+            .bcon{
+                transform: scale(0.89);
+            }
+            .bcon button{
+                transform: scale(0.88);
+            }
+        }
+
+        .img:hover {
+            transform: scale(1.05);
+            border: 0.5px solid white;
+        }
+
+        .foot {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 70px;
+            width: 100%;
+            background-color: rgb(35, 38, 41);
+            position: relative;
+            /* top:550px; */
+            bottom: -50px;
+            padding-top: 20px;
+        }
+
+        .gap {
+            padding: 10px;
+        }
+
+        .images1 h1 {
+            display: none;
+        }
+
+        body {
+            background-color: black;
+        }
+
+        .content-trailer {
+            height: 70vh;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-evenly;
+        }
+
+        #iframe {
+            width: 60%;
+            height: 90%;
+        }
+
+        @media screen and (max-width:600px) {
+            #iframe {
+                width: 90%;
+            }
+        }
+
+        h1 {
+            display: none;
+        }
+
+        .top {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: relative;
+            background-color: black;
+            top: 0px;
+            z-index: 10;
+            height: 70px;
+            border-color: rgba(240, 248, 255, 0.616);
+            border-width: 0.5px;
+            border-style: none none none none;
+        }
+
+        .top-left img {
+            width: 200px;
+            height: 100px;
+        }
+
+        .top-right button a {
+            text-decoration: none;
+            color: white;
+            font-family: roboto;
+            letter-spacing: 0.5px;
+        }
+
+        .top-right button {
+            background-color: #E50914;
+            border: none;
+            padding: 5px 15px;
+        }
+
+        .top-right span button {
+            margin: 0px 30px;
+            height: 40px;
+            width: 40px;
+            font-size: 15px;
+            border-radius: 50%;
+        }
+
+        .top-right span button i {
+            position: relative;
+            right: 0.5px
+        }
+
+        .closebtn {
+            height: 30px;
+            width: 30px;
+        }
+
+        .top-right button:hover {
+            background-color: white;
+            color: #E50914;
+        }
+
+        .end button {
+            border-radius: 5px;
+        }
+
+        .top-right button {
+            position: relative;
+            right: 10px;
+        }
+
+        .bgs,
+        .bgss {
+            background-color: black;
+            color: white;
+        }
+
+        .backbutton:hover {
+            background-color: white;
+            color: #E50914;
+        }
+
+        .top-right span span button{
+            background-color: black;
+            border-radius: 0px;
+            width:100%;
+            display: flex;
+            justify-content: flex-end;
+            color: inherit;
+        }
+        .top-right span span button:hover{
+            background-color: black;
+        }
+        .element{
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .element *{
+            /* border: 2px solid white; */
+            height: 50px;
+            display: flex;
+            align-items: center;
+        }
+        .element p{
+            width:100px;
+        }
+        .element h5{
+            width: 20px;
+            font-size: 1rem;
+            text-align: right;
+            position: relative;
+            bottom:1px
+        }
+        .ani{
+            background-color: aqua;
+            display: flex;
+            /* align-items: center; */
+            justify-content: center;
+        }
+        .ani img{
+
+            height: 100vh;
+            width: 100%;
+            position: absolute;
+            z-index:-5;
+        }
+        @media screen and (max-width:700px){
+            .ani img{
+                width: 200%;
+            }
+        }
+        #trailer{
+            width: 100%;
+        }
+        *{
+            border: none;
+            border-color: black;
+        }
+        @media screen and (max-width:425px) {
+            body{
+                width:100%;
+                overflow-x:hidden;
+            }
+            #trailer{
+              width:150%;
+              margin-left:50%;
+            }
+            #netflixsection{
+                width:150%;
+                overflow-x:hidden;
+                overflow-y:hidden;
+            }
+           .cf{
+            width:100%;
+           }
+           .bcon{
+            margin-left:12%;
+            width:70%;
+           }
+           .top{
+            width:100%;
+            margin-left:4%;
+           }
+           .animations{
+            width:200%;
+            height: 120vh;
+            padding-left:50%;
+           }
+           .foot{
+            position: relative;
+            text-align: center;
+            left:26%;
+            width:150%;
+            padding:0px;
+            margin:0px;
+           }
+           .content{
+             transform:scale(1.7);
+             margin-left:30%;
+             margin-top:55%;
+             height:600px;
+           }
+           .banner{
+             transform:scale(1.7);
+             padding:3%;
+             margin-top:15%;
+           }
+        }
+    </style>
+
+</head>
+
+<body>
+    <!-- <section class="animate ani">
+        <img src="https://github.com/888SAM-B/cdnimages/blob/main/Netflix%20New%20Logo%20Animation%202019%20(1080p)%20(1).gif?raw=true" alt="">
+    </section> -->
+    <section class="animations">
+            <div class="line1"></div>
+            <div class="line2"></div>
+            <div class="line3"></div>
+            <div class="minilines">
+            <div class="sline1 li"  style="  box-shadow: -0.5px 1px  7.5px aliceblue;   background-color: aliceblue;"></div>
+            <div class="sline2 li"  style="  box-shadow: -0.5px 1px  7.5px blue;   background-color: blue;"></div>
+            <div class="sline3 li"  style="  box-shadow: -0.5px 1px  7.5px violet;   background-color: violet;"></div>
+            <div class="sline4 li"  style="  box-shadow: -0.5px 1px  7.5px red;   background-color: red;"></div>
+            <div class="sline5 li"  style="  box-shadow: -0.5px 1px  7.5px burlywood;   background-color: burlywood;"></div>
+            <div class="sline6 li"  style="  box-shadow: -0.5px 1px  7.5px aqua;   background-color: aqua;"></div>
+            <div class="sline7 li"  style="  box-shadow: -0.5px 1px  7.5px gray;   background-color: gray;"></div>
+            <div class="sline1 li"  style="  box-shadow: -0.5px 1px  7.5px aliceblue;   background-color: aliceblue;"></div>
+            <div class="sline2 li"  style="  box-shadow: -0.5px 1px  7.5px rgb(123, 123, 218);   background-color: rgb(123, 123, 218);"></div>
+            <div class="sline3 li"  style="  box-shadow: -0.5px 1px  7.5px violet;   background-color: violet;"></div>
+            <div class="sline8 li"  style="  box-shadow: -0.5px 1px  7.5px  goldenrod;  background-color: goldenrod;"></div>
+            <div class="sline9 li"  style="  box-shadow: -0.5px 1px  7.5px   rgb(73, 247, 4);  background-color: rgb(73, 247, 4);"></div>
+            <div class="sline10 li" style="  box-shadow: -0.5px 1px  7.5px gold;   background-color: gold;"></div>
+            <div class="sline11 li" style="  box-shadow: -0.5px 1px  7.5px violet;   background-color: violet;"></div>
+            <div class="sline12 li" style="  box-shadow: -0.5px 1px  7.5px salmon;   background-color: salmon;"></div>
+            <div class="sline13 li" style="  box-shadow: -0.5px 1px  7.5px blanchedalmond;   background-color: blanchedalmond;"></div>
+            <div class="sline14 li" style="  box-shadow: -0.5px 1px  7.5px chocolate;   background-color: chocolate;"></div>
+            <div class="sline15 li" style="  box-shadow: -0.5px 1px  7.5px aliceblue;   background-color: aliceblue;"></div>
+            <div class="sline1 li"  style="  box-shadow: -0.5px 1px  7.5px aliceblue;   background-color: aliceblue;"></div>
+            <div class="sline2 li"  style="  box-shadow: -0.5px 1px  7.5px rgb(255, 123, 0);   background-color: rgb(255, 123, 0);"></div>
+            <div class="sline3 li"  style="  box-shadow: -0.5px 1px  7.5px violet;   background-color: violet;"></div>
+            <div class="sline1 li"  style="  box-shadow: -0.5px 1px  7.5px aliceblue;   background-color: aliceblue;"></div>
+            <div class="sline2 li"  style="  box-shadow: -0.5px 1px  7.5px blue;    background-color: blue;"></div>
+            <div class="sline3 li"  style="  box-shadow: -0.5px 1px  7.5px violet;   background-color: violet;"></div>
+            <div class="sline4 li"  style="  box-shadow: -0.5px 1px  7.5px red;   background-color: red;"></div>
+            <div class="sline5 li"  style="  box-shadow: -0.5px 1px  7.5px burlywood;   background-color: burlywood;"></div>
+            <div class="sline6 li"  style="  box-shadow: -0.5px 1px  7.5px aqua;   background-color: aqua;"></div>
+            <div class="sline7 li"  style="  box-shadow: -0.5px 1px  7.5px gray;   background-color: gray;"></div>
+            <div class="sline1 li"  style="  box-shadow: -0.5px 1px  7.5px aliceblue;   background-color: aliceblue;"></div>
+            <div class="sline2 li"  style="  box-shadow: -0.5px 1px  7.5px rgb(123, 123, 218);   background-color: rgb(123, 123, 218);"></div>
+            <div class="sline1 li"  style="  box-shadow: -0.5px 1px  7.5px aliceblue;   background-color: aliceblue;"></div>
+            <div class="sline2 li"  style="  box-shadow: -0.5px 1px  7.5px blue;   background-color: blue;"></div>
+            <div class="sline3 li"  style="  box-shadow: -0.5px 1px  7.5px violet;   background-color: violet;"></div>
+            <div class="sline4 li"  style="  box-shadow: -0.5px 1px  7.5px red;   background-color: red;"></div>
+            <div class="sline5 li"  style="  box-shadow: -0.5px 1px  7.5px burlywood;   background-color: burlywood;"></div>
+            <div class="sline6 li"  style="  box-shadow: -0.5px 1px  7.5px aqua;   background-color: aqua;"></div>
+            <div class="sline7 li"  style="  box-shadow: -0.5px 1px  7.5px gray;   background-color: gray;"></div>
+            <div class="sline1 li"  style="  box-shadow: -0.5px 1px  7.5px aliceblue;   background-color: aliceblue;"></div>
+             <div class="sline2 li"  style="  box-shadow: -0.5px 1px  7.5px rgb(123, 123, 218);   background-color: rgb(123, 123, 218);"></div>
+            <div class="sline3 li"  style="  box-shadow: -0.5px 1px  7.5px violet;   background-color: violet;"></div>
+            <div class="sline8 li"  style="  box-shadow: -0.5px 1px  7.5px goldenrod;   background-color: goldenrod;"></div>
+            <div class="sline9 li"  style="  box-shadow: -0.5px 1px  7.5px rgb(73, 247, 4);   background-color: rgb(73, 247, 4);"></div>
+            <div class="sline10 li" style="  box-shadow: -0.5px 1px  7.5px gold;   background-color: gold;"></div>
+            <div class="sline11 li" style="  box-shadow: -0.5px 1px  7.5px violet;   background-color: violet;"></div>
+            <div class="sline12 li" style="  box-shadow: -0.5px 1px  7.5px salmon;   background-color: salmon;"></div>
+            <div class="sline13 li" style="  box-shadow: -0.5px 1px  7.5px blanchedalmond;   background-color: blanchedalmond;"></div>
+            <div class="sline14 li" style="  box-shadow: -0.5px 1px  7.5px chocolate;   background-color: chocolate;"></div>
+            <div class="sline1 li"  style="  box-shadow: -0.5px 1px  7.5px aliceblue;   background-color: aliceblue;"></div>
+            <div class="sline2 li"  style="  box-shadow: -0.5px 1px  7.5px blue;   background-color: blue;"></div>
+            <div class="sline3 li"  style="  box-shadow: -0.5px 1px  7.5px violet;   background-color: violet;"></div>
+            <div class="sline4 li"  style="  box-shadow: -0.5px 1px  7.5px red;   background-color: red;"></div>
+            <div class="sline5 li"  style="  box-shadow: -0.5px 1px  7.5px burlywood;   background-color: burlywood;"></div>
+            <div class="sline6 li"  style="  box-shadow: -0.5px 1px  7.5px aqua;   background-color: aqua;"></div>
+            <div class="sline7 li"  style="  box-shadow: -0.5px 1px  7.5px gray;   background-color: gray;"></div>
+            <div class="sline1 li"  style="  box-shadow: -0.5px 1px  7.5px aliceblue;   background-color: aliceblue;"></div>
+             <div class="sline2 li"  style="  box-shadow: -0.5px 1px  7.5px rgb(123, 123, 218);   background-color: rgb(123, 123, 218);"></div>
+            <div class="sline3 li"  style="  box-shadow: -0.5px 1px  7.5px violet;   background-color: violet;"></div>
+            <div class="sline8 li"  style="  box-shadow: -0.5px 1px  7.5px goldenrod;   background-color: goldenrod;"></div>
+    </section>
+    <section id="netflixsection" class="container">
+        <div class="top">
+            <div class="top-left">
+                <img src="https://images.ctfassets.net/y2ske730sjqp/6bhPChRFLRxc17sR8jgKbe/6fa1c6e6f37acdc97ff635cf16ba6fb3/Logos-Readability-Netflix-logo.png"
+                    alt="">
+            </div>
+            <div class="top-right">
+                <span style="display: flex; padding: 10px;">
+                    <span>
+                    <button class="btn btn-primary bt" type="button" data-bs-toggle="offcanvas"
+                        data-bs-target="#offcanvasRight" aria-controls="offcanvasRight"> 
+                    <p style="position: relative; top: 8px; ">
+                        <%= fname %>
+                    </p></button>
+                </span>
+                    <button class="btn btn-primary " type="button" data-bs-toggle="offcanvas"
+                        data-bs-target="#offcanvasRight" aria-controls="offcanvasRight"><i class="fa fa-user"
+                            aria-hidden="true"></i></button></span>
+                <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight"
+                    aria-labelledby="offcanvasRightLabel">
+                    <div class="offcanvas-header bgs">
+                        <h5 class="offcanvas-title bgs" id="offcanvasRightLabel">User info</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                    </div>
+                    <div class="offcanvas-body bgs">
+                        <div class="element">
+                        <p>Firstname </p>
+                        <h5>:</h4>
+                        <h6  > <%= fname %></h6>
+                        </div>
+                        <br>
+                        <div class="element">
+                        <p>Lastname </p>
+                        <h5>:</h4>
+                        <h6  style="position:relative; padding:0px; margin: 0px; "><%= lname %></h6>
+                        </div>
+                        <br>
+                        <div class="element">
+                        <p>Email </p>
+                        <h5>:</h4>
+                        <h6 style="position:relative; padding:0px; margin: 0px;"><%= email %></h6>
+                        </div>
+                        <br>
+                        <br>
+                        <a href="/"><button  style="margin-left: 15px;">logout</button></a>
+                    </div> 
+                </div>
+            </div>
+        </div>
+        <div class="cf " style="margin-top: 20px;">
+            <div class="banner ">
+                <img src="https://cubeboardtech.neocities.org/netflix/pictures/money1.jpg" class="mainbanner">
+                <div class="bcon">
+                    <h3>Money Heist</h3>
+                    <div class="btn">
+                        <a><button class="ifi">Play
+                                <h1>https://www.youtube.com/embed/_InqQJRqGW4?si=owCNH5GwzMntZctu&amp;controls=0</h1>
+                            </button></a>
+                        <button>Watch</button>
+                    </div>
+                    <p>
+                        A gripping Spanish series following a criminal mastermind, "The Professor," and his team
+                        executing intricate heists. Known for its suspense, twists, and complex characters, it
+                        captivates audiences globally.</p>
+                </div>
+            </div>
+            <div class="content container">
+                <h2>Trending </h2>
+                <div class="images">
+                    <div class="ifi"><img src="https://cubeboardtech.neocities.org/netflix/pictures/movie11.jpeg"
+                            class="img">
+                        <h1>https://www.youtube.com/embed/Po3jStA673E?si=ctrFjvVcO4miug7q</h1>
+                    </div>
+                    <div class="ifi"> <img src="https://cubeboardtech.neocities.org/netflix/pictures/movie12.jpeg"
+                            class="img">
+                        <h1>https://www.youtube.com/embed/EcNACt-LOi0?si=V3HNpLCUOO5znwZ6</h1>
+                    </div>
+                    <div class="ifi"> <img src="https://cubeboardtech.neocities.org/netflix/pictures/movie13.jpeg"
+                            class="img">
+                        <h1>https://www.youtube.com/embed/nI9TBoMlmv4?si=SXxxSF-0UVZjbDG5</h1>
+                    </div>
+                    <div class="ifi"> <img src="https://cubeboardtech.neocities.org/netflix/pictures/movie14.jpeg"
+                            class="img">
+                        <h1>https://www.youtube.com/embed/Gi83R8jEqZU?si=1zTpme9eEEsR3oyQ</h1>
+                    </div>
+                    <div class="ifi"> <img src="https://cubeboardtech.neocities.org/netflix/pictures/movie15.jpeg"
+                            class="img">
+                        <h1>https://www.youtube.com/embed/pq-OwcnUrcw?si=4AbsAAEh3FpQc5L5</h1>
+                    </div>
+                    <div class="ifi"> <img src="https://cubeboardtech.neocities.org/netflix/pictures/movie16.jpeg"
+                            class="img">
+                        <h1>https://www.youtube.com/embed/0E1kVRRi6lk?si=fpEEOh3zyniyzloG</h1>
+                    </div>
+                    <div class="ifi"> <img src="https://cubeboardtech.neocities.org/netflix/pictures/movie17.jpeg"
+                            class="img">
+                        <h1>https://www.youtube.com/embed/UTiXQcrLlv4?si=bSHx15hDlBd3vE6R</h1>
+                    </div>
+                    <div class="ifi"> <img src="https://cubeboardtech.neocities.org/netflix/pictures/movie18.jpeg"
+                            class="img">
+                        <h1>https://www.youtube.com/embed/VkkyaodksT4?si=cPU7pSBIEC96yhjN</h1>
+                    </div>
+                    <div class="ifi"> <img src="https://cubeboardtech.neocities.org/netflix/pictures/movie19.jpeg"
+                            class="img">
+                        <h1>https://www.youtube.com/embed/bMf0IyzyKt4?si=hJDJejd8O4ua2r73</h1>
+                    </div>
+                    <div class="ifi"> <img src="https://cubeboardtech.neocities.org/netflix/pictures/movie20.jpeg"
+                            class="img">
+                        <h1>https://www.youtube.com/embed/4hYS1PoM4XM?si=ef86Mjd97wa-ji5z</h1>
+                    </div>
+                    <div class="ifi"> <img src="https://cubeboardtech.neocities.org/netflix/pictures/movie1.jpeg"
+                            class="img">
+                        <h1>https://www.youtube.com/embed/W1JzR8muGn4?si=vJBwZpkIXmFGyPK4</h1>
+                    </div>
+                    <div class="ifi"> <img src="https://cubeboardtech.neocities.org/netflix/pictures/movie2.jpeg"
+                            class="img">
+                        <h1>https://www.youtube.com/embed/gQDo5QuZTaw?si=vd9U5UG6icfs7HmV</h1>
+                    </div>
+                    <div class="ifi"> <img src="https://cubeboardtech.neocities.org/netflix/pictures/movie3.jpeg"
+                            class="img">
+                        <h1>https://www.youtube.com/embed/5FZnvzAA2iQ?si=IyE11DEyu1oHP2l4</h1>
+                    </div>
+                    <div class="ifi"> <img src="https://cubeboardtech.neocities.org/netflix/pictures/movie4.jpeg"
+                            class="img">
+                        <h1>https://www.youtube.com/embed/t9retstFUlM?si=214ROdWdvEONzsmO</h1>
+                    </div>
+                    <div class="ifi"> <img src="https://cubeboardtech.neocities.org/netflix/pictures/movie5.jpeg"
+                            class="img">
+                        <h1>https://www.youtube.com/embed/GR-Ui8-V2M0?si=Och8P93PuArUIXUW</h1>
+                    </div>
+                    <div class="ifi"> <img src="https://cubeboardtech.neocities.org/netflix/pictures/movie6.jpeg"
+                            class="img">
+                        <h1>https://www.youtube.com/embed/1JlLi9pDaJE?si=ovdOrTE7i5yC_aPW</h1>
+                    </div>
+                    <div class="ifi"> <img src="https://cubeboardtech.neocities.org/netflix/pictures/movie7.jpeg"
+                            class="img">
+                        <h1>https://www.youtube.com/embed/JjMM0W4NDAk?si=K8grxTEPqc1eETI9</h1>
+                    </div>
+                    <div class="ifi"> <img src="https://cubeboardtech.neocities.org/netflix/pictures/movie8.jpeg"
+                            class="img">
+                        <h1>https://www.youtube.com/embed/hEa7MwqxpUY?si=yhAZBSVb4d5IEFg3</h1>
+                    </div>
+                    <div class="ifi"> <img src="https://cubeboardtech.neocities.org/netflix/pictures/movie9.jpeg"
+                            class="img">
+                        <h1>https://www.youtube.com/embed/rBykYlMSfY8?si=BaEIZXSBuDu-T-uH&amp;controls=0</h1>
+                    </div>
+                </div>
+                <br>
+                <div class="content1">
+                    <h2>Family Entertainer</h2>
+                    <div class="images1">
+                        <div><img src="https://cubeboardtech.neocities.org/netflix/pictures/movie2.jpeg" class="img">
+                            <h1></h1>
+                        </div>
+                        <div class="ifi"> <img src="https://cubeboardtech.neocities.org/netflix/pictures/movie7.jpeg"
+                                class="img">
+                            <h1 name="trailername">https://www.youtube.com/embed/JjMM0W4NDAk?si=K8grxTEPqc1eETI9</h1>
+                        </div>
+                        <div class="ifi"> <img src="https://cubeboardtech.neocities.org/netflix/pictures/movie19.jpeg"
+                                class="img">
+                            <h1>https://www.youtube.com/embed/bMf0IyzyKt4?si=hJDJejd8O4ua2r73</h1>
+                        </div>
+                        <div class="ifi"> <img src="https://cubeboardtech.neocities.org/netflix/pictures/movie14.jpeg"
+                                class="img">
+                            <h1>https://www.youtube.com/embed/Gi83R8jEqZU?si=1zTpme9eEEsR3oyQ</h1>
+                        </div>
+                        <div class="ifi"> <img src="https://cubeboardtech.neocities.org/netflix/pictures/movie3.jpeg"
+                                class="img">
+                            <h1>https://www.youtube.com/embed/5FZnvzAA2iQ?si=IyE11DEyu1oHP2l4</h1>
+                        </div>
+                        <div class="ifi"> <img src="https://cubeboardtech.neocities.org/netflix/pictures/movie15.jpeg"
+                                class="img">
+                            <h1>https://www.youtube.com/embed/pq-OwcnUrcw?si=4AbsAAEh3FpQc5L5</h1>
+                        </div>
+                        <div class="ifi"> <img src="https://cubeboardtech.neocities.org/netflix/pictures/movie8.jpeg"
+                                class="img">
+                            <h1>https://www.youtube.com/embed/hEa7MwqxpUY?si=yhAZBSVb4d5IEFg3</h1>
+                        </div>
+                        <div class="ifi"><img src="https://cubeboardtech.neocities.org/netflix/pictures/movie11.jpeg"
+                                class="img">
+                            <h1>https://www.youtube.com/embed/Po3jStA673E?si=ctrFjvVcO4miug7q</h1>
+                        </div>
+                        <div class="ifi"> <img src="https://cubeboardtech.neocities.org/netflix/pictures/movie13.jpeg"
+                                class="img">
+                            <h1>https://www.youtube.com/embed/nI9TBoMlmv4?si=SXxxSF-0UVZjbDG5</h1>
+                        </div>
+                        <div class="ifi"> <img src="https://cubeboardtech.neocities.org/netflix/pictures/movie17.jpeg"
+                                class="img">
+                            <h1>https://www.youtube.com/embed/UTiXQcrLlv4?si=bSHx15hDlBd3vE6R</h1>
+                        </div>
+                        <div class="ifi"> <img src="https://cubeboardtech.neocities.org/netflix/pictures/movie18.jpeg"
+                                class="img">
+                            <h1>https://www.youtube.com/embed/VkkyaodksT4?si=cPU7pSBIEC96yhjN</h1>
+                        </div>
+                        <div class="ifi"> <img src="https://cubeboardtech.neocities.org/netflix/pictures/movie9.jpeg"
+                                class="img">
+                            <h1>https://www.youtube.com/embed/rBykYlMSfY8?si=BaEIZXSBuDu-T-uH&amp;controls=0</h1>
+                        </div>
+                        <div class="ifi"> <img src="https://cubeboardtech.neocities.org/netflix/pictures/movie16.jpeg"
+                                class="img"><h1>https://www.youtube.com/embed/0E1kVRRi6lk?si=fpEEOh3zyniyzloG</h1></div>
+                <div class="ifi"> <img src="https://cubeboardtech.neocities.org/netflix/pictures/movie20.jpeg"
+                                class="img">
+                            <h1>https://www.youtube.com/embed/4hYS1PoM4XM?si=ef86Mjd97wa-ji5z</h1>
+                        </div>
+                        <div class="ifi"> <img src="https://cubeboardtech.neocities.org/netflix/pictures/movie12.jpeg"
+                                class="img">
+                            <h1>https://www.youtube.com/embed/EcNACt-LOi0?si=V3HNpLCUOO5znwZ6</h1>
+                        </div>
+                        <div class="ifi"> <img src="https://cubeboardtech.neocities.org/netflix/pictures/movie1.jpeg"
+                                class="img">
+                            <h1>https://www.youtube.com/embed/W1JzR8muGn4?si=vJBwZpkIXmFGyPK4</h1>
+                        </div>
+                        <div class="ifi"> <img src="https://cubeboardtech.neocities.org/netflix/pictures/movie4.jpeg"
+                                class="img">
+                            <h1>https://www.youtube.com/embed/t9retstFUlM?si=214ROdWdvEONzsmO</h1>
+                        </div>
+                        <div class="ifi"> <img src="https://cubeboardtech.neocities.org/netflix/pictures/movie2.jpeg"
+                                class="img">
+                            <h1>https://www.youtube.com/embed/gQDo5QuZTaw?si=vd9U5UG6icfs7HmV</h1>
+                        </div>
+                        <div class="ifi"> <img src="https://cubeboardtech.neocities.org/netflix/pictures/movie6.jpeg"
+                                class="img">
+                            <h1>https://www.youtube.com/embed/1JlLi9pDaJE?si=ovdOrTE7i5yC_aPW</h1>
+                        </div>
+                        <div class="ifi"> <img src="https://cubeboardtech.neocities.org/netflix/pictures/movie5.jpeg"
+                                class="img">
+                            <h1>https://www.youtube.com/embed/GR-Ui8-V2M0?si=Och8P93PuArUIXUW</h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="trailer" style="display:none;">
+        <div class="top " style="display:flex; width:100%">
+            <div class="top-left">
+                <img src="https://images.ctfassets.net/y2ske730sjqp/6bhPChRFLRxc17sR8jgKbe/6fa1c6e6f37acdc97ff635cf16ba6fb3/Logos-Readability-Netflix-logo.png"
+                    alt="">
+            </div>
+            <div class="top-right">
+                <button class=".button border" id="but"><a class="backbutton" id="an" href="/profile">Back</a></button>
+            </div>
+        </div>
+        <div class="content-trailer">
+            <iframe width="560" height="315" src="" frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin" allowfullscreen id="iframe"></iframe>
+        </div>
+    </section>
+    <div class="foot">
+        <p>Designed by Cube board tech</p>
+        <p class="gap">|</p>
+        <p>contact : +91 90809 24519</p>
+    </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" integrity="sha512-7eHRwcbYkK4d9g/6tD/mhkf++eoTHwpNM9woBxtPUBWm67zeAfFC+HrdoE2GanKeocly/VxeLvIqwvCdk7qScg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+    <script>
+        let r1 = document.querySelector(".images");
+        r1.addEventListener("wheel", (evt) => {
+            evt.preventDefault();
+            r1.scrollLeft += evt.deltaY
+        });
+        let r2 = document.querySelector(".images1");
+        r2.addEventListener("wheel", (evt) => {
+            evt.preventDefault();
+            r2.scrollLeft += evt.deltaY
+        });
+        document.addEventListener("DOMContentLoaded", () => {
+            const divs = document.querySelectorAll('.ifi');
+            divs.forEach(div => {
+                div.addEventListener('click', () => {
+                    const h1Content = div.querySelector('h1').textContent;
+                    document.getElementById("netflixsection").style.display = "none";
+                    document.getElementById("iframe").src = h1Content;
+                    document.getElementById("trailer").style.display = "block"
+                });
+            });
+        });
+        document.getElementById("but").addEventListener("mouseenter", () => {
+            document.getElementById("an").style.color = "red"
+            document.getElementById("an").style.backgroundColor = "white"
+        })
+        document.getElementById("but").addEventListener("mouseleave", () => {
+            document.getElementById("an").style.color = "white"
+            document.getElementById("an").style.backgroundColor = "red"
+        })
+        gsap.fromTo(".animations",
+        {opacity:1},{opacity:0,
+            
+            duration:1.75,
+            delay:2
+        })
+        gsap.fromTo("#netflixsection",
+        {opacity:0},{opacity:1,
+            
+            duration:1.5,
+            delay:2.75
+        })
+    </script>
+        
+</body>
+</html>
